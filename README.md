@@ -1,0 +1,2 @@
+# chooseGoodsAttributesDemo
+实现购买物品属性界面
