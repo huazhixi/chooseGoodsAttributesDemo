@@ -276,20 +276,21 @@
 
 - (void)showInView:(UIView *)view {
     [view addSubview:self];
-    
+    __weak typeof(self) _weakSelf = self;
     self.contentView.frame = CGRectMake(0, kScreenH, kScreenW, kATTR_VIEW_HEIGHT);;
     
     [UIView animateWithDuration:0.3 animations:^{
-        self.backgroundColor = [UIColor colorWithWhite:0 alpha:0.5];
-        self.contentView.frame = CGRectMake(0, kScreenH - kATTR_VIEW_HEIGHT, kScreenW, kATTR_VIEW_HEIGHT);
+        _weakSelf.backgroundColor = [UIColor colorWithWhite:0 alpha:0.5];
+        _weakSelf.contentView.frame = CGRectMake(0, kScreenH - kATTR_VIEW_HEIGHT, kScreenW, kATTR_VIEW_HEIGHT);
     }];
 }
 - (void)removeView {
+    __weak typeof(self) _weakSelf = self;
     [UIView animateWithDuration:0.3 animations:^{
-        self.backgroundColor = [UIColor clearColor];
-        self.contentView.frame = CGRectMake(0, kScreenH, kScreenW, kATTR_VIEW_HEIGHT);
+        _weakSelf.backgroundColor = [UIColor clearColor];
+        _weakSelf.contentView.frame = CGRectMake(0, kScreenH, kScreenW, kATTR_VIEW_HEIGHT);
     } completion:^(BOOL finished) {
-        [self removeFromSuperview];
+        [_weakSelf removeFromSuperview];
     }];
 }
 
@@ -300,11 +301,9 @@
     // 属性ID str
     NSString *attr_id1 = [NSString stringWithFormat:@"%@-%@", _goods_attr_1, _goods_attr_value_1];
     NSString *attr_id2 = [NSString stringWithFormat:@"%@-%@", _goods_attr_2, _goods_attr_value_2];
-//    NSArray *attr_id = [NSArray arrayWithObjects:attr_id1, attr_id2, nil];
     NSString *attr_id = [NSString stringWithFormat:@"%@|%@", attr_id1, attr_id2];
-    typeof(self) _blockSelf = self;
-    if (_blockSelf.sureBtnsClick) {
-        _blockSelf.sureBtnsClick(num, attr_id, _blockSelf.goods_attr_value_1, _blockSelf.goods_attr_value_2);
+    if (self.sureBtnsClick) {
+        self.sureBtnsClick(num, attr_id, self.goods_attr_value_1, self.goods_attr_value_2);
     }
     [self removeView];
 }
