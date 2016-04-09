@@ -13,9 +13,11 @@
 #import "MJExtension.h"
 #import "SVProgressHUD.h"
 #import "GoodAttributesView.h"
+#import "WZLBadgeImport.h"
 
 @interface GoodsDetailViewController ()
 
+@property (weak, nonatomic) IBOutlet UIButton *buyCarBtn;
 @property (nonatomic, strong) NSArray *goodAttrsArr;
 @end
 
@@ -23,6 +25,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    _buyCarBtn.badgeBgColor = kMAINCOLOR;
+    _buyCarBtn.badgeTextColor = kWhiteColor;
+    [_buyCarBtn showBadgeWithStyle:WBadgeStyleNumber value:3 animationType:WBadgeAnimTypeScale];
     
     [self getGoodAttrData];
 }

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DE41E3541CB89BE1002541D9 /* UIBarButtonItem+WZLBadge.m in Sources */ = {isa = PBXBuildFile; fileRef = DE41E3481CB89BE1002541D9 /* UIBarButtonItem+WZLBadge.m */; };
+		DE41E3551CB89BE1002541D9 /* UITabBarItem+WZLBadge.m in Sources */ = {isa = PBXBuildFile; fileRef = DE41E34A1CB89BE1002541D9 /* UITabBarItem+WZLBadge.m */; };
+		DE41E3561CB89BE1002541D9 /* CAAnimation+WAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = DE41E34D1CB89BE1002541D9 /* CAAnimation+WAnimation.m */; };
+		DE41E3571CB89BE1002541D9 /* UIView+WZLBadge.m in Sources */ = {isa = PBXBuildFile; fileRef = DE41E3521CB89BE1002541D9 /* UIView+WZLBadge.m */; };
 		DE7429E11C2E6A3900554C3D /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7429E01C2E6A3900554C3D /* UIView+Extension.m */; };
 		DE8D95901C560FA4001B3B0E /* LXHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = DE8D958E1C560FA4001B3B0E /* LXHttpTool.m */; };
 		DECCFE381C285407004FB461 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DECCFE371C285407004FB461 /* main.m */; };
@@ -25,6 +29,16 @@
 		0A2CC1CC8F2D7634555D3AC4 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		1F81F12DD0BAA914C6DA4390 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		71536B8391F76865FB669162 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE41E3471CB89BE1002541D9 /* UIBarButtonItem+WZLBadge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+WZLBadge.h"; sourceTree = "<group>"; };
+		DE41E3481CB89BE1002541D9 /* UIBarButtonItem+WZLBadge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+WZLBadge.m"; sourceTree = "<group>"; };
+		DE41E3491CB89BE1002541D9 /* UITabBarItem+WZLBadge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarItem+WZLBadge.h"; sourceTree = "<group>"; };
+		DE41E34A1CB89BE1002541D9 /* UITabBarItem+WZLBadge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarItem+WZLBadge.m"; sourceTree = "<group>"; };
+		DE41E34C1CB89BE1002541D9 /* CAAnimation+WAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CAAnimation+WAnimation.h"; sourceTree = "<group>"; };
+		DE41E34D1CB89BE1002541D9 /* CAAnimation+WAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CAAnimation+WAnimation.m"; sourceTree = "<group>"; };
+		DE41E34F1CB89BE1002541D9 /* WZLBadgeProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZLBadgeProtocol.h; sourceTree = "<group>"; };
+		DE41E3511CB89BE1002541D9 /* UIView+WZLBadge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WZLBadge.h"; sourceTree = "<group>"; };
+		DE41E3521CB89BE1002541D9 /* UIView+WZLBadge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WZLBadge.m"; sourceTree = "<group>"; };
+		DE41E3531CB89BE1002541D9 /* WZLBadgeImport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZLBadgeImport.h; sourceTree = "<group>"; };
 		DE7429DF1C2E6A3900554C3D /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
 		DE7429E01C2E6A3900554C3D /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		DE8D958D1C560FA4001B3B0E /* LXHttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXHttpTool.h; sourceTree = "<group>"; };
@@ -67,6 +81,63 @@
 				1F81F12DD0BAA914C6DA4390 /* Pods.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		DE41E3441CB89BC3002541D9 /* Venders */ = {
+			isa = PBXGroup;
+			children = (
+				DE41E3451CB89BE1002541D9 /* WZLBadge */,
+			);
+			path = Venders;
+			sourceTree = "<group>";
+		};
+		DE41E3451CB89BE1002541D9 /* WZLBadge */ = {
+			isa = PBXGroup;
+			children = (
+				DE41E3461CB89BE1002541D9 /* BarItem */,
+				DE41E34B1CB89BE1002541D9 /* CategorySupport */,
+				DE41E34E1CB89BE1002541D9 /* Protocol */,
+				DE41E3501CB89BE1002541D9 /* View */,
+				DE41E3531CB89BE1002541D9 /* WZLBadgeImport.h */,
+			);
+			path = WZLBadge;
+			sourceTree = "<group>";
+		};
+		DE41E3461CB89BE1002541D9 /* BarItem */ = {
+			isa = PBXGroup;
+			children = (
+				DE41E3471CB89BE1002541D9 /* UIBarButtonItem+WZLBadge.h */,
+				DE41E3481CB89BE1002541D9 /* UIBarButtonItem+WZLBadge.m */,
+				DE41E3491CB89BE1002541D9 /* UITabBarItem+WZLBadge.h */,
+				DE41E34A1CB89BE1002541D9 /* UITabBarItem+WZLBadge.m */,
+			);
+			path = BarItem;
+			sourceTree = "<group>";
+		};
+		DE41E34B1CB89BE1002541D9 /* CategorySupport */ = {
+			isa = PBXGroup;
+			children = (
+				DE41E34C1CB89BE1002541D9 /* CAAnimation+WAnimation.h */,
+				DE41E34D1CB89BE1002541D9 /* CAAnimation+WAnimation.m */,
+			);
+			path = CategorySupport;
+			sourceTree = "<group>";
+		};
+		DE41E34E1CB89BE1002541D9 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				DE41E34F1CB89BE1002541D9 /* WZLBadgeProtocol.h */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		DE41E3501CB89BE1002541D9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DE41E3511CB89BE1002541D9 /* UIView+WZLBadge.h */,
+				DE41E3521CB89BE1002541D9 /* UIView+WZLBadge.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		DE7429DE1C2E6A3900554C3D /* Category */ = {
@@ -127,6 +198,7 @@
 				DEFB16A21CB4ACDA005964E6 /* GoodAttributesView.m */,
 				DE7429E21C2E964B00554C3D /* Model */,
 				DE7429DE1C2E6A3900554C3D /* Category */,
+				DE41E3441CB89BC3002541D9 /* Venders */,
 				DECCFE421C285407004FB461 /* Assets.xcassets */,
 				DECCFE361C285407004FB461 /* Supporting Files */,
 			);
@@ -276,12 +348,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE8D95901C560FA4001B3B0E /* LXHttpTool.m in Sources */,
+				DE41E3541CB89BE1002541D9 /* UIBarButtonItem+WZLBadge.m in Sources */,
 				DEFB169F1CB4AB16005964E6 /* UIButton+Bootstrap.m in Sources */,
 				DE7429E11C2E6A3900554C3D /* UIView+Extension.m in Sources */,
+				DE41E3571CB89BE1002541D9 /* UIView+WZLBadge.m in Sources */,
 				DEFB16A31CB4ACDA005964E6 /* GoodAttributesView.m in Sources */,
 				DECCFE4F1C28551A004FB461 /* GoodsDetailViewController.m in Sources */,
+				DE41E3551CB89BE1002541D9 /* UITabBarItem+WZLBadge.m in Sources */,
 				DECCFE3B1C285407004FB461 /* AppDelegate.m in Sources */,
 				DECCFE381C285407004FB461 /* main.m in Sources */,
+				DE41E3561CB89BE1002541D9 /* CAAnimation+WAnimation.m in Sources */,
 				DEFB16991CB4A3E7005964E6 /* GoodAttrModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
