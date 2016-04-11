@@ -4,4 +4,5 @@ pod 'AFNetworking', '~> 3.0'
 pod "SVProgressHUD"
 pod "SDWebImage"
 pod "YYWebImage”
+pod "YYCategories"
 pod "MJExtension"

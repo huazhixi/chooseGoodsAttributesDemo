@@ -1,4 +1,4 @@
-YYWebImage <a href="#中文介绍">中文介绍</a>
+YYWebImage
 ==============
 [![License MIT](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://raw.githubusercontent.com/ibireme/YYWebImage/master/LICENSE)&nbsp;
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)&nbsp;
@@ -21,7 +21,7 @@ See these project for more information.
 Features
 ==============
 - Asynchronous image load from remote or local URL.
-- Animated WebP, APNG, GIF support.
+- Animated WebP, APNG, GIF support (dynamic buffer, lower memory usage).
 - Baseline/progressive/interlaced image decode support.
 - Image loading category for UIImageView, UIButton, MKAnnotationView and CALayer.
 - Image effect: blur, round corner, resize, color tint, crop, rotate and more.
@@ -79,6 +79,26 @@ Usage
                 NSLog(@"load from disk cache");
             }
         }];
+        
+###Image Cache
+    YYImageCache *cache = [YYWebImageManager sharedManager].cache;
+    
+    // get cache capacity
+    cache.memoryCache.totalCost;
+    cache.memoryCache.totalCount;
+    cache.diskCache.totalCost;
+    cache.diskCache.totalCount;
+    
+    // clear cache
+    [cache.memoryCache removeAllObjects];
+    [cache.diskCache removeAllObjects];
+    
+    // clear disk cache with progress
+    [cache.diskCache removeAllObjectsWithProgressBlock:^(int removedCount, int totalCount) {
+        // progress
+    } endBlock:^(BOOL error) {
+        // end
+    }];
 	
 Installation
 ==============
@@ -86,17 +106,17 @@ Installation
 ### CocoaPods
 
 1. Update cocoapods to the latest version.
-1. Add `pod "YYWebImage"` to your Podfile.
-2. Run `pod install` or `pod update`.
-3. Import \<YYWebImage/YYWebImage.h\>
-
+2. Add `pod 'YYWebImage'` to your Podfile.
+3. Run `pod install` or `pod update`.
+4. Import \<YYWebImage/YYWebImage.h\>.
+5. Notice: it doesn't include WebP subspec by default, if you want to support WebP format, you may add `pod 'YYImage/WebP'` to your Podfile.
 
 ### Carthage
 
 1. Add `github "ibireme/YYWebImage"` to your Cartfile.
 2. Run `carthage update --platform ios` and add the framework to your project.
-3. Import \<YYWebImage/YYWebImage.h\>
-4. Notice: carthage framework doesn't include webp component, if you want to support webp, use cocoapods or install manually.
+3. Import \<YYWebImage/YYWebImage.h\>.
+4. Notice: carthage framework doesn't include webp component, if you want to support WebP format, use CocoaPods or install manually.
 
 ### Manually
 
@@ -112,8 +132,8 @@ Installation
 	* MobileCoreServices
 	* sqlite3
 	* libz
-4. Add `Vendor/WebP.framework`(static library) to your Xcode project if you want to support WebP.
-5. Import `YYWebImage.h`.
+4. Import `YYWebImage.h`.
+5. Notice: if you want to support WebP format, you may add `Vendor/WebP.framework`(static library) to your Xcode project.
 
 
 Documentation
@@ -124,12 +144,12 @@ You can also install documentation locally using [appledoc](https://github.com/t
 
 Requirements
 ==============
-This library requires a deployment target of iOS 6.0 or greater.
+This library requires `iOS 6.0+` and `Xcode 7.0+`.
 
 
 License
 ==============
-YYImage is provided under the MIT license. See LICENSE file for details.
+YYWebImage is provided under the MIT license. See LICENSE file for details.
 
 
 <br/><br/>
@@ -150,7 +170,7 @@ YYWebImage 是一个异步图片加载框架 ([YYKit](https://github.com/ibireme
 特性
 ==============
 - 异步的图片加载，支持 HTTP 和本地文件。
-- 支持 WebP、APNG、GIF 动画。
+- 支持 GIF、APNG、WebP 动画（动态缓存，低内存占用）。
 - 支持逐行扫描、隔行扫描、渐进式图像加载。
 - UIImageView、UIButton、MKAnnotationView、CALayer 的 Category 方法支持。
 - 常见图片处理：模糊、圆角、大小调整、裁切、旋转、色调等。
@@ -208,6 +228,27 @@ YYWebImage 是一个异步图片加载框架 ([YYKit](https://github.com/ibireme
                 NSLog(@"load from disk cache");
             }
         }];
+
+
+###图片缓存
+    YYImageCache *cache = [YYWebImageManager sharedManager].cache;
+    
+    // 获取缓存大小
+    cache.memoryCache.totalCost;
+    cache.memoryCache.totalCount;
+    cache.diskCache.totalCost;
+    cache.diskCache.totalCount;
+    
+    // 清空缓存
+    [cache.memoryCache removeAllObjects];
+    [cache.diskCache removeAllObjects];
+    
+    // 清空磁盘缓存，带进度回调
+    [cache.diskCache removeAllObjectsWithProgressBlock:^(int removedCount, int totalCount) {
+        // progress
+    } endBlock:^(BOOL error) {
+        // end
+    }];
 	
 安装
 ==============
@@ -215,17 +256,17 @@ YYWebImage 是一个异步图片加载框架 ([YYKit](https://github.com/ibireme
 ### CocoaPods
 
 1. 将 cocoapods 更新至最新版本.
-1. 在 Podfile 中添加 `pod "YYWebImage"`。
-2. 执行 `pod install` 或 `pod update`。
-3. 导入 \<YYWebImage/YYWebImage.h\>。
-
+2. 在 Podfile 中添加 `pod 'YYWebImage'`。
+3. 执行 `pod install` 或 `pod update`。
+4. 导入 \<YYWebImage/YYWebImage.h\>。
+5. 注意：pod 配置并没有包含 WebP 组件, 如果你需要支持 WebP，可以在 Podfile 中添加 `pod 'YYImage/WebP'`。
 
 ### Carthage
 
 1. 在 Cartfile 中添加 `github "ibireme/YYWebImage"`。
 2. 执行 `carthage update --platform ios` 并将生成的 framework 添加到你的工程。
 3. 导入 \<YYWebImage/YYWebImage.h\>。
-4. 注意: carthage framework 并没有包含 webp 组件。如果你需要支持 webp，可以用 cocoapods 安装，或者手动安装。
+4. 注意: carthage framework 并没有包含 webp 组件。如果你需要支持 WebP，可以用 CocoaPods 安装，或者手动安装。
 
 ### 手动安装
 
@@ -241,8 +282,8 @@ YYWebImage 是一个异步图片加载框架 ([YYKit](https://github.com/ibireme
 	* MobileCoreServices
 	* sqlite3
 	* libz
-4. 如果你需要支持 WebP，可以将 `Vendor/WebP.framework`(静态库) 加入你的工程。
-5. 导入 `YYWebImage.h`。
+4. 导入 `YYWebImage.h`。
+5. 注意：如果你需要支持 WebP，可以将 `Vendor/WebP.framework`(静态库) 加入你的工程。
 
 
 文档
@@ -252,7 +293,7 @@ YYWebImage 是一个异步图片加载框架 ([YYKit](https://github.com/ibireme
 
 系统要求
 ==============
-该项目最低支持 iOS 6.0。
+该项目最低支持 `iOS 6.0` 和 `Xcode 7.0`。
 
 
 许可证
@@ -264,3 +305,4 @@ YYWebImage 使用 MIT 许可证，详情见 LICENSE 文件。
 [移动端图片格式调研](http://blog.ibireme.com/2015/11/02/mobile_image_benchmark/)<br/>
 
 [iOS 处理图片的一些小 Tip](http://blog.ibireme.com/2015/11/02/ios_image_tips/)
+

@@ -12,6 +12,9 @@
 		DE41E3561CB89BE1002541D9 /* CAAnimation+WAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = DE41E34D1CB89BE1002541D9 /* CAAnimation+WAnimation.m */; };
 		DE41E3571CB89BE1002541D9 /* UIView+WZLBadge.m in Sources */ = {isa = PBXBuildFile; fileRef = DE41E3521CB89BE1002541D9 /* UIView+WZLBadge.m */; };
 		DE7429E11C2E6A3900554C3D /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7429E01C2E6A3900554C3D /* UIView+Extension.m */; };
+		DE76D9BD1CBB38CA00E23E58 /* ShoppingCarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE76D9BB1CBB38CA00E23E58 /* ShoppingCarViewController.m */; };
+		DE76D9C21CBB3D5A00E23E58 /* LXNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE76D9C11CBB3D5A00E23E58 /* LXNavigationController.m */; };
+		DE76D9C51CBB41E100E23E58 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = DE76D9C41CBB41E100E23E58 /* UIBarButtonItem+Extension.m */; };
 		DE8D95901C560FA4001B3B0E /* LXHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = DE8D958E1C560FA4001B3B0E /* LXHttpTool.m */; };
 		DECCFE381C285407004FB461 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DECCFE371C285407004FB461 /* main.m */; };
 		DECCFE3B1C285407004FB461 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DECCFE3A1C285407004FB461 /* AppDelegate.m */; };
@@ -41,6 +44,12 @@
 		DE41E3531CB89BE1002541D9 /* WZLBadgeImport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZLBadgeImport.h; sourceTree = "<group>"; };
 		DE7429DF1C2E6A3900554C3D /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
 		DE7429E01C2E6A3900554C3D /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		DE76D9BA1CBB38CA00E23E58 /* ShoppingCarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingCarViewController.h; sourceTree = "<group>"; };
+		DE76D9BB1CBB38CA00E23E58 /* ShoppingCarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingCarViewController.m; sourceTree = "<group>"; };
+		DE76D9C01CBB3D5A00E23E58 /* LXNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXNavigationController.h; sourceTree = "<group>"; };
+		DE76D9C11CBB3D5A00E23E58 /* LXNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXNavigationController.m; sourceTree = "<group>"; };
+		DE76D9C31CBB41E100E23E58 /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
+		DE76D9C41CBB41E100E23E58 /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
 		DE8D958D1C560FA4001B3B0E /* LXHttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXHttpTool.h; sourceTree = "<group>"; };
 		DE8D958E1C560FA4001B3B0E /* LXHttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXHttpTool.m; sourceTree = "<group>"; };
 		DECCFE331C285407004FB461 /* chooseGoods_Attr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chooseGoods_Attr.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,6 +95,7 @@
 		DE41E3441CB89BC3002541D9 /* Venders */ = {
 			isa = PBXGroup;
 			children = (
+				DE76D9BF1CBB3D5A00E23E58 /* 导航栏 */,
 				DE41E3451CB89BE1002541D9 /* WZLBadge */,
 			);
 			path = Venders;
@@ -143,6 +153,8 @@
 		DE7429DE1C2E6A3900554C3D /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				DE76D9C31CBB41E100E23E58 /* UIBarButtonItem+Extension.h */,
+				DE76D9C41CBB41E100E23E58 /* UIBarButtonItem+Extension.m */,
 				DEFB169D1CB4AB16005964E6 /* UIButton+Bootstrap.h */,
 				DEFB169E1CB4AB16005964E6 /* UIButton+Bootstrap.m */,
 				DE7429DF1C2E6A3900554C3D /* UIView+Extension.h */,
@@ -158,6 +170,15 @@
 				DEFB16981CB4A3E7005964E6 /* GoodAttrModel.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		DE76D9BF1CBB3D5A00E23E58 /* 导航栏 */ = {
+			isa = PBXGroup;
+			children = (
+				DE76D9C01CBB3D5A00E23E58 /* LXNavigationController.h */,
+				DE76D9C11CBB3D5A00E23E58 /* LXNavigationController.m */,
+			);
+			path = "导航栏";
 			sourceTree = "<group>";
 		};
 		DE8D958A1C560FA4001B3B0E /* HttpTool */ = {
@@ -196,6 +217,8 @@
 				DECCFE4E1C28551A004FB461 /* GoodsDetailViewController.m */,
 				DEFB16A11CB4ACDA005964E6 /* GoodAttributesView.h */,
 				DEFB16A21CB4ACDA005964E6 /* GoodAttributesView.m */,
+				DE76D9BA1CBB38CA00E23E58 /* ShoppingCarViewController.h */,
+				DE76D9BB1CBB38CA00E23E58 /* ShoppingCarViewController.m */,
 				DE7429E21C2E964B00554C3D /* Model */,
 				DE7429DE1C2E6A3900554C3D /* Category */,
 				DE41E3441CB89BC3002541D9 /* Venders */,
@@ -348,6 +371,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE8D95901C560FA4001B3B0E /* LXHttpTool.m in Sources */,
+				DE76D9BD1CBB38CA00E23E58 /* ShoppingCarViewController.m in Sources */,
 				DE41E3541CB89BE1002541D9 /* UIBarButtonItem+WZLBadge.m in Sources */,
 				DEFB169F1CB4AB16005964E6 /* UIButton+Bootstrap.m in Sources */,
 				DE7429E11C2E6A3900554C3D /* UIView+Extension.m in Sources */,
@@ -355,6 +379,8 @@
 				DEFB16A31CB4ACDA005964E6 /* GoodAttributesView.m in Sources */,
 				DECCFE4F1C28551A004FB461 /* GoodsDetailViewController.m in Sources */,
 				DE41E3551CB89BE1002541D9 /* UITabBarItem+WZLBadge.m in Sources */,
+				DE76D9C51CBB41E100E23E58 /* UIBarButtonItem+Extension.m in Sources */,
+				DE76D9C21CBB3D5A00E23E58 /* LXNavigationController.m in Sources */,
 				DECCFE3B1C285407004FB461 /* AppDelegate.m in Sources */,
 				DECCFE381C285407004FB461 /* main.m in Sources */,
 				DE41E3561CB89BE1002541D9 /* CAAnimation+WAnimation.m in Sources */,
