@@ -10,7 +10,7 @@
 #define GlobalDefine_h
 
 
-#define SERVERURL  @"http://hll.cccuu.com"
+#define SERVERURL  @"your http_url"
 
 #define kSmallMargin 10
 #define kBigMargin 20

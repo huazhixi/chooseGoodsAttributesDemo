@@ -112,7 +112,7 @@
     [contentView addSubview:sureBtn];
     
     UIScrollView *attrScrollView = [[UIScrollView alloc] initWithFrame:(CGRect){0, CGRectGetMaxY(iconImgView.frame), kScreenW, sureBtn.frame.origin.y - CGRectGetMaxY(iconImgView.frame) - 10}];
-    attrScrollView.bounces = NO;
+    attrScrollView.bounces = YES;
     attrScrollView.backgroundColor = kWhiteColor;
     [contentView addSubview:attrScrollView];
     self.scrollView = attrScrollView;
@@ -168,7 +168,7 @@
             btn.frame = CGRectMake(one_btnsX, one_btnY, size.width + 30, 35);
             one_btnsX += 15 + size.width + kBigMargin;
         }
-        [btn defaultStyleWithNormalTitleColor:HX_RGB(136, 137, 138) andHighTitleColor:kWhiteColor andBorderColor:LXBorderColor andBackgroundColor:kWhiteColor andHighBgColor:kMAINCOLOR andSelectedBgColor:kMAINCOLOR withcornerRadius:2];
+        [btn defaultStyleWithNormalTitleColor:HX_RGB(136, 137, 138) andHighTitleColor:kWhiteColor andBorderColor:LXBorderColor andBackgroundColor:kWhiteColor andHighBgColor:kMAINCOLOR andSelectedBgColor:kMAINCOLOR withcornerRadius:8];
         [self.scrollView addSubview:btn];
         [self.firstBtnsArr addObject:btn];
     }
@@ -211,8 +211,8 @@
             btn.frame = CGRectMake(two_btnX, two_btnY, size.width + 30, 30);
             two_btnX += 15 + size.width + kBigMargin;
         }
-        [btn defaultStyleWithNormalTitleColor:HX_RGB(136, 137, 138) andHighTitleColor:kWhiteColor andBorderColor:LXBorderColor andBackgroundColor:kWhiteColor andHighBgColor:kMAINCOLOR andSelectedBgColor:kMAINCOLOR withcornerRadius:2];
-        btn.layer.cornerRadius = 15;
+        [btn defaultStyleWithNormalTitleColor:HX_RGB(136, 137, 138) andHighTitleColor:kWhiteColor andBorderColor:LXBorderColor andBackgroundColor:kWhiteColor andHighBgColor:kMAINCOLOR andSelectedBgColor:kMAINCOLOR withcornerRadius:8];
+//        btn.layer.cornerRadius = 15;
         btn.layer.masksToBounds = YES;
         [self.scrollView addSubview:btn];
         [self.secondBtnsArr addObject:btn];
