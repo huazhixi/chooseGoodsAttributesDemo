@@ -8,7 +8,7 @@
         <!--Navigation Controller-->
         <scene sceneID="BuJ-zP-fiP">
             <objects>
-                <navigationController id="b7M-3c-08Z" sceneMemberID="viewController">
+                <navigationController id="b7M-3c-08Z" customClass="LXNavigationController" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="fUq-Q6-6kZ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -212,7 +212,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xWH-oN-ZqX">
-                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="480" width="320" height="44"/>
                                 <subviews>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bGi-iu-wzR">
                                         <rect key="frame" x="230" y="0.0" width="90" height="44"/>
@@ -330,7 +330,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LVq-hj-j9z">
-                                <rect key="frame" x="0.0" y="74" width="320" height="450"/>
+                                <rect key="frame" x="0.0" y="74" width="320" height="406"/>
                                 <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                             </tableView>
                         </subviews>
@@ -345,7 +345,16 @@
                             <constraint firstAttribute="trailing" secondItem="xWH-oN-ZqX" secondAttribute="trailing" id="qhS-oW-sXN"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="购物车" id="GBL-XQ-moi"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="bottomSelectBtn" destination="gzI-tO-ec6" id="q9B-Ua-XIv"/>
+                        <outlet property="deleteAndCollectView" destination="Fsw-Bj-aKN" id="aiS-Aj-EfT"/>
+                        <outlet property="jiesuanBtn" destination="bGi-iu-wzR" id="qXd-1j-Q5N"/>
+                        <outlet property="tableView" destination="LVq-hj-j9z" id="0AQ-2j-83S"/>
+                        <outlet property="totalPriceLbl" destination="DjE-Sn-17z" id="WOs-3M-6Zg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dgr-ja-mgO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
