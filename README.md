@@ -6,7 +6,7 @@
 
 效果图如下：
 
-![物品选择效果图](http://7xq2wz.com1.z0.glb.clouddn.com/物品属性选择.gif)
+![物品选择效果图](http://7xq2wz.com1.z0.glb.clouddn.com/%E8%B4%AD%E4%B9%B0%E7%89%A9%E5%93%81%E5%B1%9E%E6%80%A7%E7%95%8C%E9%9D%A2.gif)
 
 >设置购物车按钮角标效果，添加购物车页面，并设置右上角编辑按钮。
 
