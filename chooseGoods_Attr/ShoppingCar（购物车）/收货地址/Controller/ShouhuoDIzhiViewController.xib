@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ShouhuoDIzhiViewController">
+            <connections>
+                <outlet property="bottomBtn" destination="UYy-7K-fVM" id="8XZ-sm-Ece"/>
+                <outlet property="tableView" destination="cgM-xU-J2A" id="SuV-pf-8aY"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9bq-p2-l0H" userLabel="BottomView">
+                    <rect key="frame" x="0.0" y="518" width="320" height="50"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XtH-Zg-qvB" userLabel="V_lineView">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="1"/>
+                            <color key="backgroundColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="u2l-Rj-QyR"/>
+                            </constraints>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UYy-7K-fVM">
+                            <rect key="frame" x="20" y="5" width="280" height="40"/>
+                            <color key="backgroundColor" red="0.98823529409999999" green="0.31764705879999999" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="OWo-8U-E79"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <state key="normal" title="新增收货地址"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
+                            </userDefinedRuntimeAttributes>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="XtH-Zg-qvB" firstAttribute="top" secondItem="9bq-p2-l0H" secondAttribute="top" id="4cX-RG-bAz"/>
+                        <constraint firstItem="UYy-7K-fVM" firstAttribute="centerY" secondItem="9bq-p2-l0H" secondAttribute="centerY" id="Pun-qT-f2o"/>
+                        <constraint firstAttribute="height" constant="50" id="QXH-TR-Lk8"/>
+                        <constraint firstAttribute="trailing" secondItem="UYy-7K-fVM" secondAttribute="trailing" constant="20" id="Zyf-n3-PnV"/>
+                        <constraint firstAttribute="trailing" secondItem="XtH-Zg-qvB" secondAttribute="trailing" id="gac-EK-DpO"/>
+                        <constraint firstItem="UYy-7K-fVM" firstAttribute="leading" secondItem="9bq-p2-l0H" secondAttribute="leading" constant="20" id="wPW-tc-yYN"/>
+                        <constraint firstItem="XtH-Zg-qvB" firstAttribute="leading" secondItem="9bq-p2-l0H" secondAttribute="leading" id="ysO-Dg-pOr"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cgM-xU-J2A">
+                    <rect key="frame" x="0.0" y="64" width="320" height="454"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="Gf3-CP-HLF"/>
+                        <outlet property="delegate" destination="-1" id="k5b-Zx-yJH"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="9bq-p2-l0H" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Qdn-D4-vhC"/>
+                <constraint firstAttribute="bottom" secondItem="9bq-p2-l0H" secondAttribute="bottom" id="Xnk-5M-kDh"/>
+                <constraint firstItem="cgM-xU-J2A" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="cLR-D4-XgS"/>
+                <constraint firstAttribute="trailing" secondItem="9bq-p2-l0H" secondAttribute="trailing" id="e2x-kF-6jp"/>
+                <constraint firstItem="cgM-xU-J2A" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="sFN-OL-qWe"/>
+                <constraint firstAttribute="trailing" secondItem="cgM-xU-J2A" secondAttribute="trailing" id="tTe-WU-sWM"/>
+                <constraint firstItem="9bq-p2-l0H" firstAttribute="top" secondItem="cgM-xU-J2A" secondAttribute="bottom" id="zrm-PC-bTr"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <point key="canvasLocation" x="337" y="320"/>
+        </view>
+    </objects>
+</document>

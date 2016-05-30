@@ -6,3 +6,4 @@ pod "SDWebImage"
 pod "YYWebImage”
 pod "YYCategories"
 pod "MJExtension"
+pod "MJRefresh"

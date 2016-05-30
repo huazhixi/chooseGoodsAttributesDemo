@@ -93,18 +93,35 @@ YYSYNTH_DUMMY_CLASS(UIDevice_YYAdd)
 }
 #endif
 
-- (NSString *)ipAddressWIFI {
+- (NSString *)ipAddressWithIfaName:(NSString *)name {
+    if (name.length == 0) return nil;
     NSString *address = nil;
     struct ifaddrs *addrs = NULL;
     if (getifaddrs(&addrs) == 0) {
         struct ifaddrs *addr = addrs;
-        while (addr != NULL) {
-            if (addr->ifa_addr->sa_family == AF_INET) {
-                if ([[NSString stringWithUTF8String:addr->ifa_name] isEqualToString:@"en0"]) {
-                    address = [NSString stringWithUTF8String:
-                               inet_ntoa(((struct sockaddr_in *)addr->ifa_addr)->sin_addr)];
-                    break;
+        while (addr) {
+            if ([[NSString stringWithUTF8String:addr->ifa_name] isEqualToString:name]) {
+                sa_family_t family = addr->ifa_addr->sa_family;
+                switch (family) {
+                    case AF_INET: { // IPv4
+                        char str[INET_ADDRSTRLEN] = {0};
+                        inet_ntop(family, &(((struct sockaddr_in *)addr->ifa_addr)->sin_addr), str, sizeof(str));
+                        if (strlen(str) > 0) {
+                            address = [NSString stringWithUTF8String:str];
+                        }
+                    } break;
+                        
+                    case AF_INET6: { // IPv6
+                        char str[INET6_ADDRSTRLEN] = {0};
+                        inet_ntop(family, &(((struct sockaddr_in6 *)addr->ifa_addr)->sin6_addr), str, sizeof(str));
+                        if (strlen(str) > 0) {
+                            address = [NSString stringWithUTF8String:str];
+                        }
+                    }
+                        
+                    default: break;
                 }
+                if (address) break;
             }
             addr = addr->ifa_next;
         }
@@ -113,24 +130,12 @@ YYSYNTH_DUMMY_CLASS(UIDevice_YYAdd)
     return address;
 }
 
+- (NSString *)ipAddressWIFI {
+    return [self ipAddressWithIfaName:@"en0"];
+}
+
 - (NSString *)ipAddressCell {
-    NSString *address = nil;
-    struct ifaddrs *addrs = NULL;
-    if (getifaddrs(&addrs) == 0) {
-        struct ifaddrs *addr = addrs;
-        while (addr != NULL) {
-            if (addr->ifa_addr->sa_family == AF_INET) {
-                if ([[NSString stringWithUTF8String:addr->ifa_name] isEqualToString:@"pdp_ip0"]) {
-                    address = [NSString stringWithUTF8String:
-                               inet_ntoa(((struct sockaddr_in *)addr->ifa_addr)->sin_addr)];
-                    break;
-                }
-            }
-            addr = addr->ifa_next;
-        }
-    }
-    freeifaddrs(addrs);
-    return address;
+    return [self ipAddressWithIfaName:@"pdp_ip0"];
 }
 
 
@@ -251,7 +256,7 @@ static yy_net_interface_counter yy_get_net_interface_counter() {
             @"iPod4,1" : @"iPod touch 4",
             @"iPod5,1" : @"iPod touch 5",
             @"iPod7,1" : @"iPod touch 6",
-            
+
             @"iPhone1,1" : @"iPhone 1G",
             @"iPhone1,2" : @"iPhone 3G",
             @"iPhone2,1" : @"iPhone 3GS",
@@ -269,6 +274,7 @@ static yy_net_interface_counter yy_get_net_interface_counter() {
             @"iPhone7,2" : @"iPhone 6",
             @"iPhone8,1" : @"iPhone 6s",
             @"iPhone8,2" : @"iPhone 6s Plus",
+            @"iPhone8,4" : @"iPhone SE",
             
             @"iPad1,1" : @"iPad 1",
             @"iPad2,1" : @"iPad 2 (WiFi)",
@@ -297,7 +303,16 @@ static yy_net_interface_counter yy_get_net_interface_counter() {
             @"iPad5,2" : @"iPad mini 4",
             @"iPad5,3" : @"iPad Air 2",
             @"iPad5,4" : @"iPad Air 2",
-
+            @"iPad6,3" : @"iPad Pro (9.7 inch)",
+            @"iPad6,4" : @"iPad Pro (9.7 inch)",
+            @"iPad6,7" : @"iPad Pro (12.9 inch)",
+            @"iPad6,8" : @"iPad Pro (12.9 inch)",
+            
+            @"AppleTV2,1" : @"Apple TV 2",
+            @"AppleTV3,1" : @"Apple TV 3",
+            @"AppleTV3,2" : @"Apple TV 3",
+            @"AppleTV5,3" : @"Apple TV 4",
+            
             @"i386" : @"Simulator x86",
             @"x86_64" : @"Simulator x64",
         };

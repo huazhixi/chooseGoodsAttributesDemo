@@ -6,9 +6,9 @@
 //  Copyright (c) 2015年 lx. All rights reserved.
 //
 
-#import "LXHttpTool.h"
+#import "HXHttpTool.h"
 
-@implementation LXHttpTool
+@implementation HXHttpTool
 
 + (void)get:(NSString *)url params:(NSDictionary *)params success:(void (^)(id json))success failure:(void (^)(NSError *error))failure
 {

@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "AFNetworking.h"
 
-@interface LXHttpTool : NSObject
+@interface HXHttpTool : NSObject
 + (void)get:(NSString *)url params:(NSDictionary *)params success:(void (^)(id json))success failure:(void (^)(NSError *error))failure;
 /**
  *  只有参数

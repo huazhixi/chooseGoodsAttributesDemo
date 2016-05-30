@@ -8,12 +8,13 @@
 
 #import "GoodsDetailViewController.h"
 #import "GlobalDefine.h"
-#import "LXHttpTool.h"
+#import "HXHttpTool.h"
 #import "GoodAttrModel.h"
 #import "MJExtension.h"
 #import "SVProgressHUD.h"
 #import "GoodAttributesView.h"
 #import "WZLBadgeImport.h"
+#import "ShoppingCarViewController.h"
 
 @interface GoodsDetailViewController ()
 
@@ -65,15 +66,19 @@
     GoodAttrValueModel *value40 = [GoodAttrValueModel new];
     value40.attr_value = @"藏青色";
     GoodAttrValueModel *value50 = [GoodAttrValueModel new];
-    value50.attr_value = @"藏青色";
+    value50.attr_value = @"肚子疼";
     GoodAttrValueModel *value60 = [GoodAttrValueModel new];
-    value60.attr_value = @"藏青色";
+    value60.attr_value = @"一条虫";
     model1.attr_value = [NSArray arrayWithObjects:value10, value20, value30, value40, value50, value60, nil];
     
     self.goodAttrsArr = [NSArray arrayWithObjects:model0, model1, nil];
 }
 - (IBAction)chooseAttr:(UIButton *)button {
     [self createAttributesView];
+}
+- (IBAction)enterShopCar:(id)sender {
+    ShoppingCarViewController *shopCarVC = [ShoppingCarViewController new];
+    [self.navigationController pushViewController:shopCarVC animated:YES];
 }
 
 - (void)createAttributesView {

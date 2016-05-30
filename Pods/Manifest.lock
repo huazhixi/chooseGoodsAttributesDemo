@@ -15,17 +15,18 @@ PODS:
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
   - MJExtension (3.0.10)
-  - SDWebImage (3.7.5):
-    - SDWebImage/Core (= 3.7.5)
-  - SDWebImage/Core (3.7.5)
+  - MJRefresh (3.1.0)
+  - SDWebImage (3.7.6):
+    - SDWebImage/Core (= 3.7.6)
+  - SDWebImage/Core (3.7.6)
   - SVProgressHUD (2.0.3)
   - YYCache (1.0.3)
-  - YYCategories (1.0.1):
-    - YYCategories/no-arc (= 1.0.1)
-  - YYCategories/no-arc (1.0.1)
-  - YYImage (1.0.1):
-    - YYImage/Core (= 1.0.1)
-  - YYImage/Core (1.0.1)
+  - YYCategories (1.0.3):
+    - YYCategories/no-arc (= 1.0.3)
+  - YYCategories/no-arc (1.0.3)
+  - YYImage (1.0.2):
+    - YYImage/Core (= 1.0.2)
+  - YYImage/Core (1.0.2)
   - YYWebImage (1.0.3):
     - YYCache
     - YYImage
@@ -33,6 +34,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
   - MJExtension
+  - MJRefresh
   - SDWebImage
   - SVProgressHUD
   - YYCategories
@@ -41,11 +43,12 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   MJExtension: d86aacb740c87519d20e3cca55b6fa4be6cc7548
-  SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
+  MJRefresh: 743e6404967d1c2c688472ea3ecfde247d872db4
+  SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
   SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
   YYCache: 282f35b5b0990833d0b7a06d864a87141a021da2
-  YYCategories: ebd2d2d473de67a29fbfb83e812c350966cc256f
-  YYImage: b41b45bc5f32bfcdf67bdfb9c09da9e9832357c0
+  YYCategories: 0fd4d9eb0994d8d0e355beb4081c8f7202a82b7b
+  YYImage: 2cc79ed49b9549b71c6715cefe7b0f5ab3d33abf
   YYWebImage: 8da75a611fd0d2e0f58a273f9ca0bc731614cb0d
 
 COCOAPODS: 0.39.0
