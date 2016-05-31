@@ -83,7 +83,7 @@ static int global_jiesuanNum = 0;
     BuyCarModel *model1 = [BuyCarModel new];
     model1.goods_name = @"测试商品1";
     model1.shop_price = @"1.00";
-    model1.num = @"2";
+    model1.num = @"1";
     model1.car_id = @"1";
     model1.isCalculateViewHidden = YES;
     model1.goods_img = @"http://7xq2wz.com1.z0.glb.clouddn.com/ff2a50cdacc8952ad8ccfcbb3ccae3f1.jpg";
@@ -91,16 +91,23 @@ static int global_jiesuanNum = 0;
     BuyCarModel *model2 = [BuyCarModel new];
     model2.goods_name = @"测试商品2";
     model2.shop_price = @"2.00";
-    model2.num = @"4";
+    model2.num = @"2";
     model2.car_id = @"2";
     model2.isCalculateViewHidden = YES;
     model2.goods_img = @"http://7xq2wz.com1.z0.glb.clouddn.com/ff2a50cdacc8952ad8ccfcbb3ccae3f1.jpg";
     
+    BuyCarModel *model3 = [BuyCarModel new];
+    model3.goods_name = @"测试商品3";
+    model3.shop_price = @"3.00";
+    model3.num = @"3";
+    model3.car_id = @"3";
+    model3.isCalculateViewHidden = YES;
+    model3.goods_img = @"http://7xq2wz.com1.z0.glb.clouddn.com/ff2a50cdacc8952ad8ccfcbb3ccae3f1.jpg";
+    
     NSMutableArray *tempArr = [NSMutableArray arrayWithCapacity:1];
     [tempArr addObject:model1];
     [tempArr addObject:model2];
-    [tempArr addObject:model1];
-    [tempArr addObject:model2];
+    [tempArr addObject:model3];
     
     self.carListArr = tempArr;
     
@@ -130,7 +137,7 @@ static int global_jiesuanNum = 0;
             }
         } else {
             // 提示框
-            [SVProgressHUD showErrorWithStatus:@"请去添加商品" maskType:SVProgressHUDMaskTypeGradient];
+            [SVProgressHUD showErrorWithStatus:@"请去添加商品"];
         }
         [_weakSelf.tableView reloadData];
         
@@ -138,7 +145,7 @@ static int global_jiesuanNum = 0;
         [self.tableView.mj_header endRefreshing];
     } failure:^(NSError *error) {
         [self.tableView.mj_header endRefreshing];
-        [SVProgressHUD showErrorWithStatus:@"请重新加载" maskType:SVProgressHUDMaskTypeGradient];
+        [SVProgressHUD showErrorWithStatus:@"请重新加载"];
         LXLog(@"%@", error);
     }];
 }
@@ -165,10 +172,10 @@ static int global_jiesuanNum = 0;
             [_weakSelf.tableView.mj_header beginRefreshing];
         } else {
             // 提示框
-            [SVProgressHUD showErrorWithStatus:@"删除失败" maskType:SVProgressHUDMaskTypeGradient];
+            [SVProgressHUD showErrorWithStatus:@"删除失败"];
         }
     } failure:^(NSError *error) {
-        [SVProgressHUD showErrorWithStatus:@"请重新加载" maskType:SVProgressHUDMaskTypeGradient];
+        [SVProgressHUD showErrorWithStatus:@"请重新加载"];
         LXLog(@"%@", error);
     }];
 }
@@ -302,7 +309,7 @@ static int global_jiesuanNum = 0;
         }
     } else if (button.tag == 3) { //删除事件
         if (self.collectOrDeleteArr.count == 0) {
-            [SVProgressHUD showErrorWithStatus:@"请选择删除数据" maskType:SVProgressHUDMaskTypeGradient];
+            [SVProgressHUD showErrorWithStatus:@"请选择删除数据"];
         } else {
             // 删除选中的物品
             [JXTAlertTools showAlertWith:self title:@"确定删除当前选定的商品？" message:nil callbackBlock:^(NSInteger btnIndex) {
@@ -313,7 +320,7 @@ static int global_jiesuanNum = 0;
         }
     }else if (button.tag == 4) { // 添加收藏
         if (self.collectOrDeleteArr.count == 0) {
-            [SVProgressHUD showErrorWithStatus:@"未选择删除数据" maskType:SVProgressHUDMaskTypeGradient];
+            [SVProgressHUD showErrorWithStatus:@"未选择删除数据"];
         }
     }
 }
