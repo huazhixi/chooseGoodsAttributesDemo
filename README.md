@@ -19,4 +19,5 @@
 ![购物车页面数据展示](http://7xq2wz.com1.z0.glb.clouddn.com/%E8%B4%AD%E7%89%A9%E8%BD%A6%E9%A1%B5%E9%9D%A2%E6%95%B0%E6%8D%AE%E5%B1%95%E7%A4%BA.gif)
 
 > 4.从购物车选择商品之后，进入订单确认页面
+
 ![确认订单页面](http://7xq2wz.com1.z0.glb.clouddn.com/%E8%B4%AD%E7%89%A9%E8%BD%A6%E7%A1%AE%E8%AE%A4%E8%AE%A2%E5%8D%95%E9%A1%B5%E9%9D%A2.gif)
