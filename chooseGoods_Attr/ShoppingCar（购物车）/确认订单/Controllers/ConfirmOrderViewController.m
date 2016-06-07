@@ -47,7 +47,7 @@
     
     self.totalPriceLbl.text = [NSString stringWithFormat:@"￥%.2f", totalCount];
     // 获取用户地址列表数据
-    [self getAddrlistData];
+//    [self getAddrlistData];
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];

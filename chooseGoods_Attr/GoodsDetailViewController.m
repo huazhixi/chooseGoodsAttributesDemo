@@ -82,7 +82,7 @@
 }
 
 - (void)createAttributesView {
-    __weak typeof(self) _weakSelf = self;
+//    __weak typeof(self) _weakSelf = self;
     GoodAttributesView *attributesView = [[GoodAttributesView alloc] initWithFrame:(CGRect){0, 0, kScreenW, kScreenH}];
     attributesView.goodAttrsArr = self.goodAttrsArr;
 //    attributesView.good_img = self.goodDetailModel.goods_img;

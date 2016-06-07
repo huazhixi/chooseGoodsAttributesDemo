@@ -78,7 +78,9 @@ static int global_jiesuanNum = 0;
     _totalPriceLbl.text = @"￥0";
     [_jiesuanBtn setTitle:@"结算(0)" forState:UIControlStateNormal];
 }
-
+/**
+ *  创建模拟数据
+ */
 - (void)createShopCarData {
     BuyCarModel *model1 = [BuyCarModel new];
     model1.goods_name = @"测试商品1";
@@ -113,71 +115,6 @@ static int global_jiesuanNum = 0;
     
     [self.tableView reloadData];
     
-}
-
-/**
- *  获取 用户购物车列表
- */
-- (void)getCarListData {
-    typeof(self) _weakSelf = self;
-    self.carListArr = nil;
-    NSString *userID = [[NSUserDefaults standardUserDefaults] objectForKey:@"user_id"];
-    NSString *URL = [NSString stringWithFormat:@"%@/App/Sylm/yclist",SERVERURL];
-    NSMutableDictionary *paramas = [NSMutableDictionary dictionary];
-    paramas[@"method"] = @"carlist";
-    paramas[@"user_id"] = userID;
-    [HXHttpTool post:URL params:paramas success:^(id json) {
-        LXLog(@"%@", json);
-        NSInteger status = [json[@"status"] integerValue];
-        if (status == 1) {
-            self.carListArr = [BuyCarModel mj_objectArrayWithKeyValuesArray:json[@"data"]];
-//            LXLog(@"%ld", self.carListArr.count);
-            for (BuyCarModel *model in self.carListArr) {
-                model.isCalculateViewHidden = YES;
-            }
-        } else {
-            // 提示框
-            [SVProgressHUD showErrorWithStatus:@"请去添加商品"];
-        }
-        [_weakSelf.tableView reloadData];
-        
-        // 在清空数组时，要先更新数组再结束刷新，不然就会出现数组还为空，造成程序crash
-        [self.tableView.mj_header endRefreshing];
-    } failure:^(NSError *error) {
-        [self.tableView.mj_header endRefreshing];
-        [SVProgressHUD showErrorWithStatus:@"请重新加载"];
-        LXLog(@"%@", error);
-    }];
-}
-/**
- *  购物车删除接口
- */
-- (void)getCarDelData {
-    NSString *tempStr = @"";
-    for (id str  in _collectOrDeleteArr) {
-        tempStr = [tempStr stringByAppendingString:[NSString stringWithFormat:@"-%@", str]];
-    }
-    LXLog(@"%@",tempStr);
-    NSString *car_idStr = [tempStr substringFromIndex:1];
-    typeof(self) _weakSelf = self;
-    NSString *URL = [NSString stringWithFormat:@"%@/App/Sylm/yclist",SERVERURL];
-    NSMutableDictionary *paramas = [NSMutableDictionary dictionary];
-    paramas[@"method"] = @"cardel";
-    paramas[@"car_id"] = car_idStr;
-    LXLog(@"%@", paramas);
-    [HXHttpTool post:URL params:paramas success:^(id json) {
-        LXLog(@"%@", json);
-        NSInteger status = [json[@"status"] integerValue];
-        if (status == 1) {
-            [_weakSelf.tableView.mj_header beginRefreshing];
-        } else {
-            // 提示框
-            [SVProgressHUD showErrorWithStatus:@"删除失败"];
-        }
-    } failure:^(NSError *error) {
-        [SVProgressHUD showErrorWithStatus:@"请重新加载"];
-        LXLog(@"%@", error);
-    }];
 }
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -257,7 +194,7 @@ static int global_jiesuanNum = 0;
     [JXTAlertTools showAlertWith:self title:nil message:@"确认要删除该商品吗？" callbackBlock:^(NSInteger btnIndex) {
         if (btnIndex == 1) {
             // 操作删除当前行
-            [_weakSelf getCarDelData];
+//            [_weakSelf getCarDelData];
         }
     } cancelButtonTitle:@"取消" destructiveButtonTitle:@"确定" otherButtonTitles:nil, nil];
 }
@@ -314,7 +251,7 @@ static int global_jiesuanNum = 0;
             // 删除选中的物品
             [JXTAlertTools showAlertWith:self title:@"确定删除当前选定的商品？" message:nil callbackBlock:^(NSInteger btnIndex) {
                 if (btnIndex == 1) {
-                    [self getCarDelData];
+//                    [self getCarDelData];
                 }
             }  cancelButtonTitle:@"取消" destructiveButtonTitle:@"确定" otherButtonTitles:nil, nil];
         }
@@ -396,5 +333,71 @@ static int global_jiesuanNum = 0;
     }
     return _carListArr;
 }
+
+
+/**
+ *  获取 用户购物车列表
+ */
+//- (void)getCarListData {
+//    typeof(self) _weakSelf = self;
+//    self.carListArr = nil;
+//    NSString *userID = [[NSUserDefaults standardUserDefaults] objectForKey:@"user_id"];
+//    NSString *URL = [NSString stringWithFormat:@"%@/App/Sylm/yclist",SERVERURL];
+//    NSMutableDictionary *paramas = [NSMutableDictionary dictionary];
+//    paramas[@"method"] = @"carlist";
+//    paramas[@"user_id"] = userID;
+//    [HXHttpTool post:URL params:paramas success:^(id json) {
+//        LXLog(@"%@", json);
+//        NSInteger status = [json[@"status"] integerValue];
+//        if (status == 1) {
+//            self.carListArr = [BuyCarModel mj_objectArrayWithKeyValuesArray:json[@"data"]];
+////            LXLog(@"%ld", self.carListArr.count);
+//            for (BuyCarModel *model in self.carListArr) {
+//                model.isCalculateViewHidden = YES;
+//            }
+//        } else {
+//            // 提示框
+//            [SVProgressHUD showErrorWithStatus:@"请去添加商品"];
+//        }
+//        [_weakSelf.tableView reloadData];
+//
+//        // 在清空数组时，要先更新数组再结束刷新，不然就会出现数组还为空，造成程序crash
+//        [self.tableView.mj_header endRefreshing];
+//    } failure:^(NSError *error) {
+//        [self.tableView.mj_header endRefreshing];
+//        [SVProgressHUD showErrorWithStatus:@"请重新加载"];
+//        LXLog(@"%@", error);
+//    }];
+//}
+/**
+ *  购物车删除接口
+ */
+//- (void)getCarDelData {
+//    NSString *tempStr = @"";
+//    for (id str  in _collectOrDeleteArr) {
+//        tempStr = [tempStr stringByAppendingString:[NSString stringWithFormat:@"-%@", str]];
+//    }
+//    LXLog(@"%@",tempStr);
+//    NSString *car_idStr = [tempStr substringFromIndex:1];
+//    typeof(self) _weakSelf = self;
+//    NSString *URL = [NSString stringWithFormat:@"%@/App/Sylm/yclist",SERVERURL];
+//    NSMutableDictionary *paramas = [NSMutableDictionary dictionary];
+//    paramas[@"method"] = @"cardel";
+//    paramas[@"car_id"] = car_idStr;
+//    LXLog(@"%@", paramas);
+//    [HXHttpTool post:URL params:paramas success:^(id json) {
+//        LXLog(@"%@", json);
+//        NSInteger status = [json[@"status"] integerValue];
+//        if (status == 1) {
+//            [_weakSelf.tableView.mj_header beginRefreshing];
+//        } else {
+//            // 提示框
+//            [SVProgressHUD showErrorWithStatus:@"删除失败"];
+//        }
+//    } failure:^(NSError *error) {
+//        [SVProgressHUD showErrorWithStatus:@"请重新加载"];
+//        LXLog(@"%@", error);
+//    }];
+//}
 
 @end

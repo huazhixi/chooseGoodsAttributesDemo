@@ -75,7 +75,7 @@
     [contentView addSubview:iconBackView];
     
     UIImageView *iconImgView = [[UIImageView alloc] initWithFrame:(CGRect){5, 5, 80, 80}];
-    [iconImgView setImage:[UIImage imageNamed:@"图标icon"]];
+    [iconImgView setImage:[UIImage imageNamed:@"hdl"]];
     [iconBackView addSubview:iconImgView];
     self.iconImgView = iconImgView;
     
